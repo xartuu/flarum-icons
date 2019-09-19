@@ -1,0 +1,38 @@
+{
+  "name": "fajuu/flarum-icons",
+  "description": "Finally, you can change the forum icons to the one you like!",
+  "type": "flarum-extension",
+  "keywords": ["fajuu", "fontawesomepro","icons"],
+  "homepage": "https://github.com/Fajuu/flarum-icons",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fajuu",
+      "email": "Fajuu@mykill.pl",
+      "homepage": "https://mykill.pl"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/Fajuu/flarum-icons/issues",
+    "source": "https://github.com/Fajuu/flarum-icons"
+  },
+  "require": {
+    "flarum/core": ">=0.1.0-beta.10 <0.1.0-beta.12"
+  },
+  "autoload": {
+    "psr-4": {"Fajuu\\Icons\\": "src/"}
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Fajuu Icons",
+      "icon": {
+        "name": "fas fa-shapes",
+        "backgroundColor": "#1c141f",
+        "color": "#8e24aa"
+      }
+    },
+    "flagrow": {
+      "discuss": "https://discuss.flarum.org/d/21401"
+    }
+  }
+}
