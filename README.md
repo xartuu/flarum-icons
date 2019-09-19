@@ -25,7 +25,7 @@ composer require fajuu/flarum-icons
 Screenshot from `forum`:
 
 <p align="center">
-  <img width="700" align="center" src="https://i.imgur.com/fP1KIDJ.png" alt="forum"/>
+  <img width="700" align="center" src="https://i.imgur.com/1fu8bJb.png" alt="forum"/>
 </p>
 
 Screenshot from `admin`:
