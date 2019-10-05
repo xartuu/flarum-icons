@@ -6,71 +6,79 @@ import IconDemo from '../helpers/IconDemo';
 export default class IconCreate extends Component {
 
   init() {
-    this.newIcon = {
-      id: m.prop(0),
-      elementPath: m.prop(null),
-      originalIcon: m.prop('fas fa-baby'),
-      modifiedIcon: m.prop('fas fa-child'),
-    };
+    super.init();
+
+    this.icon = app.store.createRecord('icons');
+
+    this.id = m.prop(0);
+    this.elementPath = m.prop('');
+    this.originalIcon = m.prop('fas fa-baby');
+    this.modifiedIcon = m.prop('fas fa-child');
   }
 
   view() {
-    return m('.IconCreate', [
+    return m('form', [
       m('input.FormControl.Icons-elementPath', {
         type: 'text',
-        value: this.newIcon.elementPath(),
-        oninput: m.withAttr('value', this.newIcon.elementPath),
+        value: this.elementPath(),
+        oninput: m.withAttr('value', this.elementPath),
         placeholder: app.translator.trans('fajuu-icons.admin.edit_icon.elementPath'),
       }),
       Button.component({
         type: 'button',
         className: 'Button Button--warning Icons-button',
-        icon: 'fa fa-plus',
+        children: app.translator.trans('fajuu-icons.admin.edit_icon.create'),
+        icon: 'fas fa-plus',
+        loading: this.loading,
         onclick: this.create.bind(this),
       }),
       m('input.FormControl.Icons-originalIcon', {
         type: 'text',
-        value: this.newIcon.originalIcon(),
-        oninput: m.withAttr('value', this.newIcon.originalIcon, IconDemo('o', this.newIcon)),
+        value: this.originalIcon(),
+        oninput: m.withAttr('value', this.originalIcon, IconDemo('o', this)),
         placeholder: app.translator.trans('fajuu-icons.admin.edit_icon.originalIcon'),
       }),
       m('input.FormControl.Icons-modifiedIcon', {
         type: 'text',
-        value: this.newIcon.modifiedIcon(),
-        oninput: m.withAttr('value', this.newIcon.modifiedIcon, IconDemo('m', this.newIcon)),
+        value: this.modifiedIcon(),
+        oninput: m.withAttr('value', this.modifiedIcon, IconDemo('m', this)),
         placeholder: app.translator.trans('fajuu-icons.admin.edit_icon.modifiedIcon'),
       }),
       m('span', {
         style: 'margin-left: 10px;',
       }),
-      m('icon#o' + this.newIcon.id(), [
-        m('i.Icons-demo.' + this.newIcon.originalIcon()),
+      m('icon#o' + this.id(), [
+        m('i.Icons-demo.' + this.originalIcon()),
       ]),
-      m('icon#r' + this.newIcon.id(), [
+      m('icon#r' + this.id(), [
         m('i.Icons-random.fas.fa-random'),
       ]),
-      m('icon#m' + this.newIcon.id(), [
-        m('i.Icons-demo.' + this.newIcon.modifiedIcon()),
+      m('icon#m' + this.id(), [
+        m('i.Icons-demo.' + this.modifiedIcon()),
       ]),
     ]);
   }
 
 
   create() {
-    return app.store
-      .createRecord('icons')
+    this.loading = true;
+
+    this.icon
       .save({
-        elementPath: this.newIcon.elementPath(),
-        originalIcon: this.newIcon.originalIcon(),
-        modifiedIcon: this.newIcon.modifiedIcon(),
+        elementPath: this.elementPath(),
+        originalIcon: this.originalIcon(),
+        modifiedIcon: this.modifiedIcon(),
       })
       .then(() => {
-        this.newIcon.elementPath(null);
-        this.newIcon.originalIcon('fas fa-baby');
-        this.newIcon.modifiedIcon('fas fa-child');
+        this.loading = false;
+        this.id(0);
+        this.elementPath(null);
+        this.originalIcon('fas fa-baby');
+        this.modifiedIcon('fas fa-child');
         m.redraw();
       })
       .catch(() => {
+        this.loading = false;
         m.redraw();
       });
   }

@@ -7,6 +7,8 @@ import IconDemo from '../helpers/IconDemo';
 export default class IconItem extends Component {
 
   init() {
+    super.init();
+
     this.icon = this.props.icon;
 
     this.id = m.prop(this.icon.id());
@@ -44,7 +46,9 @@ export default class IconItem extends Component {
       Button.component({
         type: 'button',
         className: 'Button Button--warning Icons-button',
-        icon: 'fa fa-times',
+        children: app.translator.trans('fajuu-icons.admin.edit_icon.delete'),
+        loading: this.loading,
+        icon: 'far fa-trash-alt',
         onclick: this.delete.bind(this),
       }),
       m('span', {
@@ -70,12 +74,19 @@ export default class IconItem extends Component {
         .save({
           [field]: value,
         })
-        .then(() => m.lazyRedraw());
+        .then(() => {
+          m.lazyRedraw();
+        });
     };
   }
 
   delete() {
-    return this.icon.delete().then(() => m.lazyRedraw());
+    this.loading = true;
+
+    this.icon.delete().then(() => {
+      this.loading = false;
+      m.lazyRedraw();
+    });
   }
 
 }

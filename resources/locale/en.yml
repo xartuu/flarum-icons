@@ -8,6 +8,8 @@ fajuu-icons:
       elementPath: Element path
       originalIcon: Original icon
       modifiedIcon: Modified icon
+      create: Create
+      delete: Delete
 
     # These translations are used in the navigation bar.
     nav:

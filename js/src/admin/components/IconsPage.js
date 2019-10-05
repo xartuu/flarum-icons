@@ -11,7 +11,7 @@ export default class IconsPage extends Page {
 
   config() {
     if (!window.FontAwesomeKitConfig)
-      setTimeout(function() {
+      setTimeout(function () {
         return app.modal.show(new IconSettingsModal())
       }, 500);
   }
@@ -20,12 +20,15 @@ export default class IconsPage extends Page {
     return m('.IconsPage', [
       m('.IconsPage-header', [
         m('.container', [
-          m('p', app.translator.trans('fajuu-icons.admin.icons.about_icons_text')),
+          m('p', app.translator.trans('fajuu-icons.admin.icons.about_icons_text', {
+            a: < a href = "https://fontawesome.com"
+            target = "_blank" / >
+          })),
           Button.component({
             className: 'Button Button--primary',
             icon: 'fas fa-list-ul',
             children: app.translator.trans('fajuu-icons.admin.icons.list_icons_button'),
-            onclick: () => window.open("https://fontawesome.com/icons",'_blank'),
+            onclick: () => window.open("https://fontawesome.com/icons", '_blank'),
           }),
           Button.component({
             className: 'Button',
@@ -43,7 +46,7 @@ export default class IconsPage extends Page {
       ]),
       m('.IconsPage-main', [
         m('.container', [
-          IconCreate.component(),
+          m('.IconCreate', IconCreate.component()),
           m('.IconList', app.store.all('icons').map(icon => {
             return m(".IconItem", {
               key: icon.id(),

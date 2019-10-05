@@ -9,31 +9,39 @@ import {
 
 export default class IconsImportModal extends Modal {
 
-  sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++)
-      if ((new Date().getTime() - start) > milliseconds)
-        break;
-  }
+  import(i) {
+    this.loading = true;
 
-  isJson(text) {
-    try {
-      if (typeof text !== 'string') {
-        return false;
-      } else {
-        JSON.parse(text);
-        return true;
-      }
-    } catch (error) {
-      return false;
+    if (!app.store.all('icons')[0]) {
+      i.map(icon => {
+        app.store.createRecord('icons').save(icon).then(() => m.redraw());
+      });
+
+      this.loading = false;
+      this.hide();
     }
+
+    app.store.all('icons').map(icon => {
+      icon.delete().then(() => {
+        m.redraw();
+        if (!app.store.all('icons')[0]) {
+
+          i.map(icon => {
+            app.store.createRecord('icons').save(icon).then(() => m.redraw());
+          });
+
+          this.loading = false;
+          this.hide();
+        }
+      });
+    });
   }
 
   constructor() {
     super();
     this.icons = m.prop(null);
 
-    this.alert = new Alert({
+    this.alert = Alert.component({
       type: 'info',
       children: app.translator.trans('fajuu-icons.admin.icon_import.about'),
     });
@@ -55,43 +63,36 @@ export default class IconsImportModal extends Modal {
       ]),
       m('.Form-group', [
         Button.component({
+          loading: this.loading,
           className: 'Button Button--primary',
           children: app.translator.trans('fajuu-icons.admin.icon_import.import_button'),
           onclick: () => {
-            if (this.isJson(this.icons())) {
-              app.store.all('icons').map(icon => {
-                icon.delete();
-              });
-              this.sleep(2000);
-              JSON.parse(this.icons()).map(icon => {
-                app.store.createRecord('icons').save(icon);
-              });
-              this.sleep(2000);
-              window.location.reload(true);
-            } else {
-              this.alert = new Alert({
-                type: 'error',
-                children: app.translator.trans('fajuu-icons.admin.icon_import.not_json'),
-              });
+            function isJson(text) {
+              try {
+                if (typeof text !== 'string') {
+                  return false;
+                } else {
+                  JSON.parse(text);
+                  return true;
+                }
+              } catch (error) {
+                return false;
+              }
             }
+
+            if (isJson(this.icons())) this.import(JSON.parse(this.icons()));
+            else this.alert = Alert.component({
+              type: 'error',
+              children: app.translator.trans('fajuu-icons.admin.icon_import.not_json'),
+            });
           },
         }),
         Button.component({
           className: 'Button',
-          icon: 'fas fa-trash-restore',
           style: 'float: right;',
+          icon: 'fas fa-trash-restore',
           children: app.translator.trans('fajuu-icons.admin.icon_import.restore_button'),
-          onclick: () => {
-            app.store.all('icons').map(icon => {
-              icon.delete();
-            });
-            this.sleep(1000);
-            icons.map(icon => {
-              app.store.createRecord('icons').save(icon);
-            });
-            this.sleep(1000);
-            window.location.reload(true);
-          },
+          onclick: () => this.import(icons),
         }),
       ]),
     ]);
