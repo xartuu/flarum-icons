@@ -12,6 +12,7 @@ class IconValidator extends AbstractValidator
       "unique:icons",
     ],
     "original_icon" => [
+      "required",
       "string",
     ],
     "modified_icon" => [
