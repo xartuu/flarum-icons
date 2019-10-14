@@ -34,13 +34,13 @@ export default class IconItem extends Component {
       m('input.FormControl.Icons-originalIcon', {
         type: 'text',
         value: this.originalIcon(),
-        oninput: m.withAttr('value', this.update('originalIcon'), IconDemo('o', this)),
+        oninput: m.withAttr('value', this.update('originalIcon'), IconDemo('original', this)),
         placeholder: app.translator.trans('fajuu-icons.admin.edit_icon.originalIcon'),
       }),
       m('input.FormControl.Icons-modifiedIcon', {
         type: 'text',
         value: this.modifiedIcon(),
-        oninput: m.withAttr('value', this.update('modifiedIcon'), IconDemo('m', this)),
+        oninput: m.withAttr('value', this.update('modifiedIcon'), IconDemo('modified', this)),
         placeholder: app.translator.trans('fajuu-icons.admin.edit_icon.modifiedIcon'),
       }),
       Button.component({
@@ -51,17 +51,10 @@ export default class IconItem extends Component {
         icon: 'far fa-trash-alt',
         onclick: this.delete.bind(this),
       }),
-      m('span', {
-        style: 'margin-left: 10px;',
-      }),
-      m('icon#o' + this.id(), [
-        m('i.Icons-demo.' + this.originalIcon()),
-      ]),
-      m('icon#r' + this.id(), [
-        m('i.Icons-random.fas.fa-random'),
-      ]),
-      m('icon#m' + this.id(), [
-        m('i.Icons-demo.' + this.modifiedIcon()),
+      m('.Icons-demo', [
+        m('i.icon.' + this.originalIcon() + '#original' + this.id()),
+        m('i.icon.fas.fa-random#random' + this.id()),
+        m('i.icon.' + this.modifiedIcon() + '#modified' + this.id()),
       ]),
     ]);
   }
