@@ -21,8 +21,7 @@ export default class IconsPage extends Page {
       m('.IconsPage-header', [
         m('.container', [
           m('p', app.translator.trans('fajuu-icons.admin.icons.about_icons_text', {
-            a: < a href = "https://fontawesome.com"
-            target = "_blank" / >
+            a: <a href="https://fontawesome.com" target="_blank" />
           })),
           Button.component({
             className: 'Button Button--primary',

@@ -6,7 +6,7 @@ import AdminLinkButton from 'flarum/components/AdminLinkButton';
 
 import IconsPage from './components/IconsPage';
 
-export default function() {
+export default function () {
   app.routes.icons = {
     path: '/icons',
     component: IconsPage.component()

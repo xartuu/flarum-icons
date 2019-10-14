@@ -23,8 +23,7 @@ export default class IconSettingsModal extends SettingsModal {
       m('.Form-group', [
         m('label', app.translator.trans('fajuu-icons.admin.icon_settings.key_heading')),
         m('.helpText', app.translator.trans('fajuu-icons.admin.icon_settings.key_text', {
-          a: <a href = "https://fontawesome.com/start"
-          target = "_blank" />
+          a: <a href="https://fontawesome.com/start" target="_blank" />
         })),
         m('input.FormControl', {
           required: true,
