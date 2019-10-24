@@ -1,5 +1,4 @@
-export default function IconDemo(type, icon) { // a mess, I advise you to skip
-
+export default function IconDemo(type, icon) {
   if (type == 'original') var i = icon.originalIcon();
   if (type == 'modified') var i = icon.modifiedIcon();
 

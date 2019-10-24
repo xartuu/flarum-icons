@@ -2,7 +2,11 @@
   "name": "fajuu/flarum-icons",
   "description": "Finally, you can change the forum icons to the one you like!",
   "type": "flarum-extension",
-  "keywords": ["fajuu", "fontawesomepro","icons"],
+  "keywords": [
+    "fajuu",
+    "fontawesomepro",
+    "icons"
+  ],
   "homepage": "https://github.com/Fajuu/flarum-icons",
   "license": "MIT",
   "authors": [
@@ -20,7 +24,9 @@
     "flarum/core": ">=0.1.0-beta.10 <0.1.0-beta.12"
   },
   "autoload": {
-    "psr-4": {"Fajuu\\Icons\\": "src/"}
+    "psr-4": {
+      "Fajuu\\Icons\\": "src/"
+    }
   },
   "extra": {
     "flarum-extension": {

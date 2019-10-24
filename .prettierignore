@@ -1,0 +1,5 @@
+LICENSE
+.gitignore
+.prettierignore
+js/dist
+js/node_modules

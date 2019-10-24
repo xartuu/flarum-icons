@@ -1,8 +1,6 @@
 fajuu-icons:
-
   # Translations in this namespace are used by the admin interface.
   admin:
-
     # These translations are used in the Edit Icon component.
     edit_icon:
       elementPath: Element path

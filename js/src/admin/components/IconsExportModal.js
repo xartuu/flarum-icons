@@ -4,7 +4,6 @@ import Button from 'flarum/components/Button';
 import Alert from 'flarum/components/Alert';
 
 export default class IconsExportModal extends Modal {
-
   isDismissible() {
     return false;
   }
@@ -19,9 +18,11 @@ export default class IconsExportModal extends Modal {
         m('textarea.FormControl#iconExport', {
           readonly: true,
           rows: 15,
-          value: JSON.stringify(app.store.all('icons').map(icon => {
-            return icon.data.attributes;
-          }))
+          value: JSON.stringify(
+            app.store.all('icons').map(icon => {
+              return icon.data.attributes;
+            })
+          ),
         }),
       ]),
       m('.Form-group', [

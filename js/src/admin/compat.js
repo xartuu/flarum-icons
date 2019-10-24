@@ -17,5 +17,5 @@ export default Object.assign(compat, {
   'icons/components/IconsImportModal': IconsImportModal,
   'icons/components/IconsPage': IconsPage,
   'icons/helpers/IconDemo': IconDemo,
-  'icons/addIconsPane': addIconsPane
+  'icons/addIconsPane': addIconsPane,
 });

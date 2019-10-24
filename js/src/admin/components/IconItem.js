@@ -5,7 +5,6 @@ import Switch from 'flarum/components/Switch';
 import IconDemo from '../helpers/IconDemo';
 
 export default class IconItem extends Component {
-
   init() {
     super.init();
 
@@ -51,11 +50,7 @@ export default class IconItem extends Component {
         icon: 'far fa-trash-alt',
         onclick: this.delete.bind(this),
       }),
-      m('.Icons-demo', [
-        m('i.icon.' + this.originalIcon() + '#original' + this.id()),
-        m('i.icon.fas.fa-random#random' + this.id()),
-        m('i.icon.' + this.modifiedIcon() + '#modified' + this.id()),
-      ]),
+      m('.Icons-demo', [m('i.icon.' + this.originalIcon() + '#original' + this.id()), m('i.icon.fas.fa-random#random' + this.id()), m('i.icon.' + this.modifiedIcon() + '#modified' + this.id())]),
     ]);
   }
 
@@ -81,5 +76,4 @@ export default class IconItem extends Component {
       m.lazyRedraw();
     });
   }
-
 }

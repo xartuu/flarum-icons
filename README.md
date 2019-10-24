@@ -16,6 +16,7 @@
 ## 🚀 Installation
 
 To download the extension you can use [Bazaar](https://discuss.flarum.org/d/5151-flagrow-bazaar-the-extension-marketplace) or install it through composer:
+
 ```bash
 composer require fajuu/flarum-icons
 ```
@@ -36,11 +37,10 @@ Screenshot from `admin`:
 
 ## 👋 A few words from me
 
-I would like to apologise because I said that enlargement would be ready sooner. 
-In any case, the extension is ready and will certainly be used in many forums :D
-I would also like to thank [@clarkwinkelmann](https://discuss.flarum.org/u/clarkwinkelmann) for helping me to solve a minor error.
+I would like to apologise because I said that enlargement would be ready sooner. In any case, the extension is ready and will certainly be used in many forums :D I would also like to thank [@clarkwinkelmann](https://discuss.flarum.org/u/clarkwinkelmann) for helping me to solve a minor error.
 
 ## 🔗 Links
+
 - [Flarum Discuss post](https://discuss.flarum.org/d/21401-icons-by-fajuu)
 - [Source code on GitHub](https://github.com/Fajuu/flarum-icons)
 - [Flagrow Extension](https://flagrow.io/extensions/Fajuu/flarum-icons)
@@ -48,8 +48,7 @@ I would also like to thank [@clarkwinkelmann](https://discuss.flarum.org/u/clark
 
 ## 📝 License
 
-Copyright © 2019 [Fajuu](https://github.com/Fajuu).<br />
-This project is [MIT](https://github.com/Fajuu/flarum-icons/blob/master/LICENSE) licensed.
+Copyright © 2019 [Fajuu](https://github.com/Fajuu).<br /> This project is [MIT](https://github.com/Fajuu/flarum-icons/blob/master/LICENSE) licensed.
 
 ---
 

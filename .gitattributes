@@ -1,0 +1,5 @@
+.gitattributes export-ignore
+.gitignore export-ignore
+.prettierignore export-ignore
+.prettierrc export-ignore
+js/dist/* -diff

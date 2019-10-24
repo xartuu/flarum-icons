@@ -1,1 +1,14 @@
-[{"elementPath":"li.item-tags>a>i","originalIcon":"fas fa-th-large","modifiedIcon":"fas fa-hashtag","isActive":1},{"elementPath":"li.item-following>a>i","originalIcon":"fas fa-star","modifiedIcon":"far fa-star","isActive":1},{"elementPath":"li.item-allDiscussions>a>i","originalIcon":"far fa-comments","modifiedIcon":"far fa-comments","isActive":1},{"elementPath":"li.item-flags>div>button>i","originalIcon":"fas fa-flag","modifiedIcon":"far fa-flag","isActive":1},{"elementPath":"li.item-notifications>div>button>i","originalIcon":"fas fa-bell","modifiedIcon":"far fa-bell","isActive":1},{"elementPath":"li.item-profile>a>i","originalIcon":"fas fa-user","modifiedIcon":"far fa-id-card","isActive":1},{"elementPath":"li.item-settings>a>i","originalIcon":"fas fa-cog","modifiedIcon":"fas fa-user-cog","isActive":1},{"elementPath":"li.item-administration>a>i","originalIcon":"fas fa-wrench","modifiedIcon":"fas fa-lock","isActive":1},{"elementPath":"li.item-logOut>a>i","originalIcon":"fas fa-sign-out-alt","modifiedIcon":"fas fa-sign-out-alt","isActive":1},{"elementPath":"li.item-posts>a>i","originalIcon":"far fa-comment","modifiedIcon":"far fa-comment","isActive":1},{"elementPath":"li.item-discussions>a>i","originalIcon":"fas fa-bars","modifiedIcon":"far fa-comment-alt","isActive":1},{"elementPath":"li.item-mentions>a>i","originalIcon":"fas fa-at","modifiedIcon":"fas fa-quote-right","isActive":1}]
+[
+  { "elementPath": "li.item-tags>a>i", "originalIcon": "fas fa-th-large", "modifiedIcon": "fas fa-hashtag", "isActive": 1 },
+  { "elementPath": "li.item-following>a>i", "originalIcon": "fas fa-star", "modifiedIcon": "far fa-star", "isActive": 1 },
+  { "elementPath": "li.item-allDiscussions>a>i", "originalIcon": "far fa-comments", "modifiedIcon": "far fa-comments", "isActive": 1 },
+  { "elementPath": "li.item-flags>div>button>i", "originalIcon": "fas fa-flag", "modifiedIcon": "far fa-flag", "isActive": 1 },
+  { "elementPath": "li.item-notifications>div>button>i", "originalIcon": "fas fa-bell", "modifiedIcon": "far fa-bell", "isActive": 1 },
+  { "elementPath": "li.item-profile>a>i", "originalIcon": "fas fa-user", "modifiedIcon": "far fa-id-card", "isActive": 1 },
+  { "elementPath": "li.item-settings>a>i", "originalIcon": "fas fa-cog", "modifiedIcon": "fas fa-user-cog", "isActive": 1 },
+  { "elementPath": "li.item-administration>a>i", "originalIcon": "fas fa-wrench", "modifiedIcon": "fas fa-lock", "isActive": 1 },
+  { "elementPath": "li.item-logOut>a>i", "originalIcon": "fas fa-sign-out-alt", "modifiedIcon": "fas fa-sign-out-alt", "isActive": 1 },
+  { "elementPath": "li.item-posts>a>i", "originalIcon": "far fa-comment", "modifiedIcon": "far fa-comment", "isActive": 1 },
+  { "elementPath": "li.item-discussions>a>i", "originalIcon": "fas fa-bars", "modifiedIcon": "far fa-comment-alt", "isActive": 1 },
+  { "elementPath": "li.item-mentions>a>i", "originalIcon": "fas fa-at", "modifiedIcon": "fas fa-quote-right", "isActive": 1 }
+]

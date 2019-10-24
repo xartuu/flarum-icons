@@ -1,7 +1,6 @@
 import SettingsModal from 'flarum/components/SettingsModal';
 
 export default class IconSettingsModal extends SettingsModal {
-
   isDismissible() {
     return false;
   }
@@ -22,17 +21,20 @@ export default class IconSettingsModal extends SettingsModal {
     return m('.Modal-body', [
       m('.Form-group', [
         m('label', app.translator.trans('fajuu-icons.admin.icon_settings.key_heading')),
-        m('.helpText', app.translator.trans('fajuu-icons.admin.icon_settings.key_text', {
-          a: <a href="https://fontawesome.com/start" target="_blank" />
-        })),
+        m(
+          '.helpText',
+          app.translator.trans('fajuu-icons.admin.icon_settings.key_text', {
+            a: <a href="https://fontawesome.com/start" target="_blank" />,
+          })
+        ),
         m('input.FormControl', {
           required: true,
           type: 'text',
           minlength: '10',
           maxlength: '10',
-          bidi: this.setting('fajuu-icons.key')
+          bidi: this.setting('fajuu-icons.key'),
         }),
-      ])
+      ]),
     ]);
   }
 }

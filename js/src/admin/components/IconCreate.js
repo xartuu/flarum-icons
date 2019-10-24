@@ -4,7 +4,6 @@ import Button from 'flarum/components/Button';
 import IconDemo from '../helpers/IconDemo';
 
 export default class IconCreate extends Component {
-
   init() {
     super.init();
 
@@ -44,14 +43,9 @@ export default class IconCreate extends Component {
         oninput: m.withAttr('value', this.modifiedIcon, IconDemo('modified', this)),
         placeholder: app.translator.trans('fajuu-icons.admin.edit_icon.modifiedIcon'),
       }),
-      m('.Icons-demo', [
-        m('i.icon.' + this.originalIcon() + '#original' + this.id()),
-        m('i.icon.fas.fa-random#random' + this.id()),
-        m('i.icon.' + this.modifiedIcon() + '#modified' + this.id()),
-      ]),
+      m('.Icons-demo', [m('i.icon.' + this.originalIcon() + '#original' + this.id()), m('i.icon.fas.fa-random#random' + this.id()), m('i.icon.' + this.modifiedIcon() + '#modified' + this.id())]),
     ]);
   }
-
 
   create() {
     this.loading = true;

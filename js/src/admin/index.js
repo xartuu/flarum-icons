@@ -8,11 +8,8 @@ app.initializers.add('fajuu-icons', app => {
   addIconsPane();
 });
 
-
 // Expose compat API
 import iconsCompat from './compat';
-import {
-  compat
-} from '@flarum/core/admin';
+import { compat } from '@flarum/core/admin';
 
 Object.assign(compat, iconsCompat);
