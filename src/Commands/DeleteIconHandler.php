@@ -1,19 +1,20 @@
-<?php namespace Fajuu\Icons\Commands;
+<?php
 
-use Flarum\User\AssertPermissionTrait;
+namespace Fajuu\Icons\Commands;
+
 use Fajuu\Icons\Models\Icon;
-use Flarum\User\Exception\PermissionDeniedException;
+use Flarum\User\AssertPermissionTrait;
 
 class DeleteIconHandler
 {
-  use AssertPermissionTrait;
+    use AssertPermissionTrait;
 
-  public function handle(DeleteIcon $command)
-  {
-    $actor = $command->actor;
-    $this->assertAdmin($actor);
+    public function handle(DeleteIcon $command)
+    {
+        $actor = $command->actor;
+        $this->assertAdmin($actor);
 
-    $icon = Icon::where('id', $command->iconId)->first();
-    $icon->delete();
-  }
+        $icon = Icon::where('id', $command->iconId)->first();
+        $icon->delete();
+    }
 }

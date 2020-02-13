@@ -1,39 +1,40 @@
-<?php namespace Fajuu\Icons\Commands;
+<?php
 
-use Flarum\User\AssertPermissionTrait;
-use Fajuu\Icons\Validators\IconValidator;
+namespace Fajuu\Icons\Commands;
+
 use Fajuu\Icons\Models\Icon;
-use Flarum\User\Exception\PermissionDeniedException;
+use Fajuu\Icons\Validators\IconValidator;
+use Flarum\User\AssertPermissionTrait;
 
 class CreateIconHandler
 {
-  use AssertPermissionTrait;
+    use AssertPermissionTrait;
 
-  protected $validator;
+    protected $validator;
 
-  public function __construct(IconValidator $validator)
-  {
-    $this->validator = $validator;
-  }
+    public function __construct(IconValidator $validator)
+    {
+        $this->validator = $validator;
+    }
 
-  public function handle(CreateIcon $command)
-  {
-    $actor = $command->actor;
-    $data = array_get($command->data, 'data.attributes') ?? $command->data;
+    public function handle(CreateIcon $command)
+    {
+        $actor = $command->actor;
+        $data = array_get($command->data, 'data.attributes') ?? $command->data;
 
-    $this->assertAdmin($actor);
+        $this->assertAdmin($actor);
 
-    $icon = Icon::build(
+        $icon = Icon::build(
       array_get($data, 'elementPath'),
       array_get($data, 'originalIcon'),
       array_get($data, 'modifiedIcon'),
       1 // isActive
     );
 
-    $this->validator->assertValid($icon->getAttributes());
+        $this->validator->assertValid($icon->getAttributes());
 
-    $icon->save();
+        $icon->save();
 
-    return $icon;
-  }
+        return $icon;
+    }
 }
