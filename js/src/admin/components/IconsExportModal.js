@@ -28,14 +28,12 @@ export default class IconsExportModal extends Modal {
       m('.Form-group', [
         Button.component({
           className: 'Button Button--primary',
-          children: app.translator.trans('fajuu-icons.admin.icon_export.close_button'),
           loading: this.loading,
           onclick: () => this.hide(),
-        }),
+        }, app.translator.trans('fajuu-icons.admin.icon_export.close_button')),
         Button.component({
           className: 'Button',
           style: 'float: right;',
-          children: app.translator.trans('fajuu-icons.admin.icon_export.copy_button'),
           icon: 'fas fa-copy',
           onclick: () => {
             this.loading = true;
@@ -58,7 +56,7 @@ export default class IconsExportModal extends Modal {
               });
             }
           },
-        }),
+        }, app.translator.trans('fajuu-icons.admin.icon_export.copy_button')),
       ]),
     ]);
   }
