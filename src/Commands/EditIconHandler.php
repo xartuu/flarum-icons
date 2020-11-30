@@ -4,12 +4,10 @@ namespace Fajuu\Icons\Commands;
 
 use Fajuu\Icons\Models\Icon;
 use Fajuu\Icons\Validators\IconValidator;
-use Flarum\User\AssertPermissionTrait;
+use Illuminate\Support\Arr;
 
 class EditIconHandler
 {
-    use AssertPermissionTrait;
-
     protected $validator;
 
     public function __construct(IconValidator $validator)
@@ -20,8 +18,8 @@ class EditIconHandler
     public function handle(EditIcon $command)
     {
         $actor = $command->actor;
-        $data = array_get($command->data, 'data.attributes') ?? $command->data;
-        $this->assertAdmin($actor);
+        $data = Arr::get($command->data, 'data.attributes') ?? $command->data;
+        $actor->assertAdmin();
         $icon = Icon::where('id', $command->iconId)->first();
 
         if (isset($data['elementPath'])) {

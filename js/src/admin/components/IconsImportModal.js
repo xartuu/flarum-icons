@@ -39,14 +39,14 @@ export default class IconsImportModal extends Modal {
     });
   }
 
-  constructor() {
-    super();
-    this.icons = m.prop(null);
+  oninit(vnode) {
+    super.oninit(vnode);
+    this.icons = null;
 
-    this.alert = Alert.component({
+    this.alertAttrs = {
       type: 'info',
-      children: app.translator.trans('fajuu-icons.admin.icon_import.about'),
-    });
+      content: app.translator.trans('fajuu-icons.admin.icon_import.about'),
+    };
   }
 
   title() {
@@ -60,7 +60,9 @@ export default class IconsImportModal extends Modal {
           required: true,
           type: 'text',
           rows: 15,
-          oninput: m.withAttr('value', this.icons),
+          oninput: event => {
+            this.icons = event.target.value;
+          },
         }),
       ]),
       m('.Form-group', [
@@ -82,7 +84,7 @@ export default class IconsImportModal extends Modal {
               }
             }
 
-            if (isJson(this.icons())) this.import(JSON.parse(this.icons()));
+            if (isJson(this.icons)) this.import(JSON.parse(this.icons));
             else
               this.alert = Alert.component({
                 type: 'error',

@@ -8,10 +8,12 @@ import IconsExportModal from './IconsExportModal';
 import IconsImportModal from './IconsImportModal';
 
 export default class IconsPage extends Page {
-  config() {
+  oncreate(vnode) {
+    super.oncreate(vnode);
+
     if (!window.FontAwesomeKitConfig)
       setTimeout(function() {
-        return app.modal.show(new IconSettingsModal());
+        return app.modal.show(IconSettingsModal);
       }, 500);
   }
 
@@ -28,21 +30,18 @@ export default class IconsPage extends Page {
           Button.component({
             className: 'Button Button--primary',
             icon: 'fas fa-list-ul',
-            children: app.translator.trans('fajuu-icons.admin.icons.list_icons_button'),
             onclick: () => window.open('https://fontawesome.com/icons', '_blank'),
-          }),
+          }, app.translator.trans('fajuu-icons.admin.icons.list_icons_button')),
           Button.component({
             className: 'Button',
             icon: 'fas fa-upload',
-            children: app.translator.trans('fajuu-icons.admin.icons.import_icons_button'),
-            onclick: () => app.modal.show(new IconsImportModal()),
-          }),
+            onclick: () => app.modal.show(IconsImportModal),
+          }, app.translator.trans('fajuu-icons.admin.icons.import_icons_button')),
           Button.component({
             className: 'Button',
             icon: 'fas fa-download',
-            children: app.translator.trans('fajuu-icons.admin.icons.export_icons_button'),
-            onclick: () => app.modal.show(new IconsExportModal()),
-          }),
+            onclick: () => app.modal.show(IconsExportModal),
+          }, app.translator.trans('fajuu-icons.admin.icons.export_icons_button')),
         ]),
       ]),
       m('.IconsPage-main', [
